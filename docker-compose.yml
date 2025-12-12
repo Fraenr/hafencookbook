@@ -1,0 +1,16 @@
+services:
+  hnh-food-book:
+    build: .
+    image: hnh-food-book:local
+    container_name: hnh-food-book
+    restart: unless-stopped
+    ports:
+      - "8082:8080"
+    volumes:
+      - ./data:/hnh-food/frontend/api/data
+    networks:
+      - hnmap
+
+networks:
+  hnmap:
+    external: true
